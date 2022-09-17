@@ -1,6 +1,9 @@
 package list
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 // 数组声明
 func ListStatement() {
@@ -19,14 +22,37 @@ func ListStatement() {
 // 数组自动分配空间
 func ListAutoSize() {
 	arr := [...]int{1, 2, 3}
-	arr2 := []int{1, 2, 3, 4}
+	fmt.Println()
 	fmt.Println(arr)
-	fmt.Println(arr2)
 	fmt.Println(len(arr))
-	fmt.Println(len(arr2))
 }
 
 // 数组类型
 func ListType() {
 
+	arr1 := [...]int{1, 2, 3}
+	arr2 := [...]int{1, 2, 3, 4}
+	fmt.Println()
+	// %T 输出变量类型
+	fmt.Printf("%T\n", arr1)
+	fmt.Printf("%T\n", arr2)
+	// 反射输出变量类型
+	fmt.Println(reflect.TypeOf(arr1))
+	fmt.Println(reflect.TypeOf(arr2))
+}
+
+// 数组类型别名
+func ListTypeAlias() {
+	type arrType [3]int
+	myarr := arrType{1, 2, 3}
+	fmt.Println()
+	fmt.Println(myarr)
+	fmt.Println(reflect.TypeOf(myarr))
+}
+
+// 按索引初始化
+func ListIndex() {
+	arr := [4]int{2: 3}
+	fmt.Println()
+	fmt.Println(arr)
 }
